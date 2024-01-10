@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem "rspec-rails", "~> 6.1"
 end
 
 group :development do
@@ -68,3 +69,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+
+gem "devise", "~> 4.9"
+
+gem "letter_opener_web", "~> 2.0"
