@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get "/contact", to: "home#contact"
 
   # Access Pages
-  resources :blogs
+  resources :blogs do
+    member do
+      get 'preview'
+    end
+  end
 
   
 

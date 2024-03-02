@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy preview]
 
   # GET /blogs or /blogs.json
   def index
@@ -8,6 +8,10 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+  end
+
+  # GET /blogs/1/preview
+  def preview
   end
 
   # GET /blogs/new

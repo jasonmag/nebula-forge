@@ -1,14 +1,31 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+<div class="bg-gray">
+  <%= render "home/shared/header" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Blogs</h1>
-    <%= link_to "New blog", new_blog_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
+        <p class="mt-2 text-lg leading-8 text-gray-600">Master the art of expanding your online presence and boosting your business with our expert guidance in web development.</p>
+      </div>
+      <div class="mt-5 flex justify-end lg:ml-4 lg:mt-0">
+        <span class="sm:ml-3">
+          <%= link_to new_blog_path, class: "inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
+            <svg class="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M10.75 6.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"></path>
+            </svg>
+            New Blog
+          <% end %>
+        </span>
+      </div>
+  
+      <div id="blogs" class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-4 sm:mt-4 sm:pt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">     
+       
+        <% @blogs.each do |blog| %>
+          <%= render partial: 'preview', locals: { blog: blog } %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div id="blogs" class="min-w-full">
-    <%= render @blogs %>
-  </div>
+  <%= render "home/shared/footer" %>  
 </div>
