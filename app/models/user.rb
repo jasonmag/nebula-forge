@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
-  has_one :user_details
+  has_one :user_details, class_name: 'UserDetail'
   has_many :user_companies
   has_many :companies, through: :user_companies
   belongs_to :role, class_name: 'UserRole'
