@@ -12,16 +12,5 @@
     <p class="mt-5 text-sm leading-6 text-gray-600"><%= blog.body %></p>
   </div>
   <!-- author -->
-  <div class="relative mt-8 flex items-center gap-x-4">
-    <img src="https://cdn.midjourney.com/8c5e339d-3c62-4e2c-9404-075c019c60f0/0_0.png" alt="" class="h-10 w-10 rounded-full bg-gray-50">
-    <div class="text-sm leading-6">
-      <p class="font-semibold text-gray-900">
-        <a href="#">
-          <span class="absolute inset-0"></span>
-          JasonMag
-        </a>
-      </p>
-      <p class="text-gray-600">Software Engineer</p>
-    </div>
-  </div>
+  <%= render partial:'home/shared/author', locals: { author: blog.author } %>
 </article>

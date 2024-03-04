@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :user_companies
   has_many :companies, through: :user_companies
   belongs_to :role, class_name: 'UserRole'
+  belongs_to :author, class_name: 'User'
 end
