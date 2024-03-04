@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_02_044444) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_155340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,37 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_02_044444) do
     t.text "body"
     t.boolean "published"
     t.string "image_source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_companies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_user_companies_on_company_id"
+    t.index ["user_id"], name: "index_user_companies_on_user_id"
+  end
+
+  create_table "user_details", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "profile_image"
+    t.text "address"
+    t.string "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_details_on_user_id"
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,4 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_02_044444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_companies", "companies"
+  add_foreign_key "user_companies", "users"
+  add_foreign_key "user_details", "users"
 end
