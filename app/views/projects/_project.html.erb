@@ -1,0 +1,37 @@
+<div id="<%= dom_id project %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= project.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Body:</strong>
+    <%= project.body %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tags:</strong>
+    <%= project.tags %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image source:</strong>
+    <%= project.image_source %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Author:</strong>
+    <%= project.author_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Published:</strong>
+    <%= project.published %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this project", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

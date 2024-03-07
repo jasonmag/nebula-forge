@@ -24,6 +24,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :projects do
+    member do
+      get 'preview'
+    end
+  end
   
 
 end
