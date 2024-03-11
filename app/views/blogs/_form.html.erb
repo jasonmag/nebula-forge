@@ -17,6 +17,20 @@
           </div>
         </div>
 
+        <div class="col-span-full">
+          <%= form.label :image_source, class: "block text-sm font-medium leading-6 text-gray-900"%>
+          <div class="mt-2">
+            <%= form.text_field :image_source, id: "image_source", autocomplete: "image_source", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+
+        <div class="col-span-full">
+          <%= form.label :author, class: "block text-sm font-medium leading-6 text-gray-900"%>
+          <div class="mt-2">
+            <%= select_tag 'Author', options_for_select(['Juan De la Cruz', 'Catherina Pedrosa', 'Antonio Chavez']), id: 'author', class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6', autocomplete: 'author' %>
+          </div>
+        </div>
+        
         <div class="relative flex gap-x-3">
           <div class="flex h-6 items-center">
             <%= form.check_box :published, id: "published", class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" %>
@@ -26,20 +40,6 @@
           </div>
         </div>
 
-        <div class="col-span-full">
-          <%= form.label :image_source, class: "block text-sm font-medium leading-6 text-gray-900"%>
-          <div class="mt-2">
-            <%= form.text_field :image_source, id: "image_source", autocomplete: "image_source", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-          </div>
-        </div>
-
-        <div class="sm:col-span-3">
-          <%= form.label :author, class: "block text-sm font-medium leading-6 text-gray-900"%>
-          <div class="mt-2">
-            <%= select_tag 'Author', options_for_select(['Juan De la Cruz', 'Catherina Pedrosa', 'Antonio Chavez']), id: 'author', class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6', autocomplete: 'author' %>
-          </div>
-        </div>
-        
       </div>
     </div>
   </div>
