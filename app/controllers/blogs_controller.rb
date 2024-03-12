@@ -18,7 +18,6 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-    # get_authors
     @blog = Blog.new
   end
 
@@ -49,7 +48,7 @@ class BlogsController < ApplicationController
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        format.json { render json: @blog.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -78,7 +77,5 @@ class BlogsController < ApplicationController
     # Get list of authors
     def get_authors 
       @authors = User.all
-      puts 'AUTHORS'
-      puts @authors
     end
 end
