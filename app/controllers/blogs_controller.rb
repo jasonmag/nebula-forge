@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[ index show ]
   before_action :set_blog, only: %i[ show edit update destroy preview]
+  before_action :get_authors, only: [ :new,:create]
 
   # GET /blogs or /blogs.json
   def index
@@ -17,6 +18,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
+    # get_authors
     @blog = Blog.new
   end
 
@@ -34,7 +36,7 @@ class BlogsController < ApplicationController
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        format.json { render json: @blog.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -70,6 +72,13 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :published, :image_source)
+      params.require(:blog).permit(:title, :body, :published, :image_source, :author_id)
+    end
+
+    # Get list of authors
+    def get_authors 
+      @authors = User.all
+      puts 'AUTHORS'
+      puts @authors
     end
 end
