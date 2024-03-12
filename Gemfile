@@ -79,3 +79,5 @@ gem "letter_opener_web", "~> 2.0"
 gem "tailwindcss-rails", "~> 2.3"
 
 gem "importmap-rails", "~> 2.0"
+
+gem "faker", "~> 3.2"
