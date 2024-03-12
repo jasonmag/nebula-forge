@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[ index show ]
   before_action :set_project, only: %i[ show edit update destroy preview]
+  before_action :get_authors, only: [ :new,:create]
 
   # GET /projects or /projects.json
   def index
@@ -34,7 +35,7 @@ class ProjectsController < ApplicationController
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @project.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +48,7 @@ class ProjectsController < ApplicationController
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @project.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -70,6 +71,11 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :body, :tags, :image_source, :published)
+      params.require(:project).permit(:title, :body, :tags, :image_source, :published, :author_id)
+    end
+
+    # Get list of authors
+    def get_authors 
+      @authors = User.all
     end
 end
