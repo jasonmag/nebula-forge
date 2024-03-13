@@ -1,37 +1,27 @@
 <div id="<%= dom_id project %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= project.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= project.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Tags:</strong>
-    <%= project.tags %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Image source:</strong>
-    <%= project.image_source %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Author:</strong>
-    <%= project.author_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Published:</strong>
-    <%= project.published %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this project", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="group relative">
+    <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+      <% if project.image_source.present? && valid_link?(project.image_source) %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_source, alt: project.title, class: "h-full w-full object-cover object-center object-top" %>
+        <% end %>
+      <% else %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag "https://cdn.midjourney.com/f73616d3-3bf9-4415-9d26-de3159789074/0_2.png", alt: "Alternative Image", class: "h-full w-full object-cover object-center object-top" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="absolute inset-x-0 bottom-0 bg-white p-4">
+      <p class="mt-1 text-base font-semibold text-gray-900">
+        <%= link_to project.title, project %>
+      </p>
+      <h3 class="mt-2 text-sm text-gray-500 mb-12">
+        <a href="#">
+          <%= project.tags %>
+        </a>
+      </h3>
+      
+    </div>
+  </div>
 </div>
+
