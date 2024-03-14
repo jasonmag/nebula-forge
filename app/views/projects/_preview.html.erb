@@ -15,11 +15,7 @@
       <p class="mt-1 text-base font-semibold text-gray-900">
         <%= link_to project.title, project %>
       </p>
-      <h3 class="mt-2 text-sm text-gray-500 mb-12">
-        <a href="#">
-          <%= project.tags %>
-        </a>
-      </h3>
+      <%= render partial: 'home/shared/tags', locals: { tags: project.tags } %>
       
     </div>
   </div>

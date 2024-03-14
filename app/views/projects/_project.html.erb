@@ -1,4 +1,4 @@
-<div id="<%= dom_id project %>">
+<!-- <div id="<%= dom_id project %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
     <%= project.title %>
@@ -34,10 +34,31 @@
     <%= link_to "Edit this project", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
-</div>
+</div> -->
 
 <article class="flex max-w-xl flex-col items-start justify-between" id="<%= dom_id project %>">
-  <div class="flex items-center gap-x-4 text-xs">
-    
+  <h2 class="my-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+    <%= project.title %>
+  </h2>
+  <!-- <time datetime="2020-03-16" class="text-xs text-gray-500"><%= project.created_at.strftime("%B %d, %Y") %></time> -->
+  
+  <!-- image cover -->
+  <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+    <% if project.image_source.present? && valid_link?(project.image_source) %>
+      <%= link_to project_path(project) do %>
+        <%= image_tag project.image_source, alt: project.title, class: "h-full w-full object-cover object-center object-top" %>
+      <% end %>
+    <% else %>
+      <%= link_to project_path(project) do %>
+        <%= image_tag "https://cdn.midjourney.com/f73616d3-3bf9-4415-9d26-de3159789074/0_2.png", alt: "Alternative Image", class: "h-full w-full object-cover object-center object-top" %>
+      <% end %>
+    <% end %>
   </div>
+  <!-- content -->
+  <div class="group relative">
+    <%= render partial: 'home/shared/tags', locals: { tags: project.tags } %>
+    <p class="mt-5 text-sm leading-6 text-gray-600"><%= project.body %></p>
+  </div>
+  <!-- author -->
+  <%= render partial:'home/shared/author', locals: { author: project.author } %>
 </article>

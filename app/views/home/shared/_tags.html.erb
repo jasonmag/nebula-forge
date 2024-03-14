@@ -1,0 +1,5 @@
+<div class="flex flex-wrap items-center gap-x-4 text-xs mt-2"> 
+  <% tags.split(",").each do |tag| %>
+    <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 my-1 font-medium text-gray-600 hover:bg-gray-100 whitespace-nowrap"><%= tag.strip %></a>
+  <% end %>
+</div>
