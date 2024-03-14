@@ -1,46 +1,7 @@
-<!-- <div id="<%= dom_id project %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= project.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= project.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Tags:</strong>
-    <%= project.tags %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Image source:</strong>
-    <%= project.image_source %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Author:</strong>
-    <%= project.author_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Published:</strong>
-    <%= project.published %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this project", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div> -->
-
 <article class="flex max-w-xl flex-col items-start justify-between" id="<%= dom_id project %>">
   <h2 class="my-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
     <%= project.title %>
   </h2>
-  <!-- <time datetime="2020-03-16" class="text-xs text-gray-500"><%= project.created_at.strftime("%B %d, %Y") %></time> -->
   
   <!-- image cover -->
   <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
@@ -54,11 +15,13 @@
       <% end %>
     <% end %>
   </div>
+
   <!-- content -->
   <div class="group relative">
     <%= render partial: 'home/shared/tags', locals: { tags: project.tags } %>
     <p class="mt-5 text-sm leading-6 text-gray-600"><%= project.body %></p>
   </div>
+  
   <!-- author -->
   <%= render partial:'home/shared/author', locals: { author: project.author } %>
 </article>

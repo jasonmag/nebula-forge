@@ -1,14 +1,27 @@
 <article class="flex max-w-xl flex-col items-start justify-between" id="<%= dom_id blog %>">
-  <div class="flex items-center gap-x-4 text-xs">
-    <%= render partial: 'home/shared/tags', locals: { tags: blog.tags } %>
+  <h2 class="my-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+    <%= blog.title %>
+  </h2>
+  
+  <!-- image cover -->
+  <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+    <% if blog.image_source.present? && valid_link?(blog.image_source) %>
+      <%= link_to blog_path(blog) do %>
+        <%= image_tag blog.image_source, alt: blog.title, class: "h-full w-full object-cover object-center object-top" %>
+      <% end %>
+    <% else %>
+      <%= link_to blog_path(blog) do %>
+        <%= image_tag "https://cdn.midjourney.com/f73616d3-3bf9-4415-9d26-de3159789074/0_2.png", alt: "Alternative Image", class: "h-full w-full object-cover object-center object-top" %>
+      <% end %>
+    <% end %>
   </div>
+
   <!-- content -->
   <div class="group relative">
-    <h2 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-      <%= blog.title %>
-    </h2>
+    <%= render partial: 'home/shared/tags', locals: { tags: blog.tags } %>
     <p class="mt-5 text-sm leading-6 text-gray-600"><%= blog.body %></p>
   </div>
+  
   <!-- author -->
   <%= render partial:'home/shared/author', locals: { author: blog.author } %>
 </article>
