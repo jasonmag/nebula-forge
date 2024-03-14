@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[ index show ]
   before_action :set_blog, only: %i[ show edit update destroy preview]
-  before_action :get_authors, only: [ :new,:create]
+  before_action :get_authors, only: [ :new,:create,:edit ]
 
   # GET /blogs or /blogs.json
   def index
