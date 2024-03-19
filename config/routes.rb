@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   # Landing Pages
   root "home#index"
   get "/about", to: "home#about"
+
+  # Contact
   get "/contact", to: "home#contact"
+  get "contacts/new", to: "contacts#new"
+  post "contacts/create", to: "contacts#create"
 
   # Access Pages
   resources :blogs do
