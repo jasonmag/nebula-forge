@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
     email = params[:email]
     message = params[:message]
 
-    ContactMailer.send_contact_email(name, email, message).deliver_now
+    ContactMailer.send_contact_email(name, email, message).deliver_later
     redirect_to root_path, notice: 'Message sent successfully!'
   end
 end
