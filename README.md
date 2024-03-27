@@ -9,7 +9,7 @@ application up and running.
 ## 1. Generate the project
 
 ```sh
-rails new my_app --database=postgresql --skip-jbuilder --skip-test --css=tailwind --javascript=esbuild
+rails new my_app --skip-jbuilder --skip-test --css=tailwind --javascript=esbuild
 ```
 
 ## 2. RSpec
