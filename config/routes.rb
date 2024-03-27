@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Landing Pages
   root "home#index"
   get "/about", to: "home#about"
+  get "/privacy-policy", to: "home#privacy_policy"
 
   # Contact
   get "/contact", to: "home#contact"

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index,:about,:contact]
+  skip_before_action :authenticate_user!, only: [:index,:about,:contact, :privacy_policy]
   before_action :get_blogs, only: [:index]
   before_action :get_projects, only: [:index]
 
@@ -10,6 +10,9 @@ class HomeController < ApplicationController
   end
 
   def contact
+  end
+
+  def privacy_policy
   end
 
   private
