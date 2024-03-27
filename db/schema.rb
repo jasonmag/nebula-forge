@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_14_172208) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -21,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_172208) do
     t.string "image_source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "author_id"
+    t.integer "author_id", null: false
     t.string "tags"
     t.index ["author_id"], name: "index_blogs_on_author_id"
   end
@@ -37,7 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_172208) do
     t.text "body"
     t.string "tags"
     t.string "image_source"
-    t.bigint "author_id", null: false
+    t.integer "author_id", null: false
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,8 +42,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_172208) do
   end
 
   create_table "user_companies", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "company_id", null: false
+    t.integer "user_id", null: false
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_user_companies_on_company_id"
@@ -54,7 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_172208) do
   end
 
   create_table "user_details", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "profile_image"
     t.text "address"
     t.string "position"
