@@ -10,9 +10,9 @@ servers:
     hosts:
       - 52.220.125.222
     labels:
-      traefik.http.routers.deanout_secure.entrypoints: websecure
-      traefik.http.routers.deanout_secure.rule: Host(`nebula-forge.jasonmag.com`)
-      traefik.http.routers.deanout_secure.tls: true
+      traefik.http.routers.jasonmag_secure.entrypoints: websecure
+      traefik.http.routers.jasonmag_secure.rule: Host(`nebulaforge.jasonmag.com`)
+      traefik.http.routers.jasonmag_secure.tls: true
 
 # Credentials for your image host.
 registry:
