@@ -9,5 +9,4 @@
 #   end
 
 # User Roles
-UserRole.create(name: 'Admin')
-UserRole.create(name: 'User')
+UserRole.create!([{ name: 'Admin' }, { name: 'User' }])
