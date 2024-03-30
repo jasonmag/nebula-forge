@@ -97,4 +97,18 @@ Rails.application.configure do
 
   # Disable SQLite warning
   config.active_record.sqlite3_production_warning=false
+
+  # Action Mailer Setup for Production
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         Rails.application.credentials.gmail[:smtp_address],
+    port:            Rails.application.credentials.gmail[:smtp_port],
+    user_name:       Rails.application.credentials.gmail[:smtp_username],
+    password:        Rails.application.credentials.gmail[:smtp_password],
+    domain:          Rails.application.credentials.gmail[:smtp_domain],
+    authentication:  'plain',
+    enable_starttls: true,
+    open_timeout:    60,
+    read_timeout:    60 
+  }
 end
