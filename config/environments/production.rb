@@ -101,11 +101,11 @@ Rails.application.configure do
   # Action Mailer Setup for Production
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:         Rails.application.credentials.gmail[:smtp_address],
-    port:            Rails.application.credentials.gmail[:smtp_port],
-    user_name:       Rails.application.credentials.gmail[:smtp_username],
-    password:        Rails.application.credentials.gmail[:smtp_password],
-    domain:          Rails.application.credentials.gmail[:smtp_domain],
+    address:         ENV["SMTP_ADDRESS"],
+    port:            ENV["SMTP_PORT"],
+    user_name:       ENV["SMTP_USERNAME"],
+    password:        ENV["SMTP_PASSWORD"],
+    domain:          ENV["SMTP_DOMAIN"],
     authentication:  'plain',
     enable_starttls: true,
     open_timeout:    60,
