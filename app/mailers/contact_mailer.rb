@@ -4,6 +4,6 @@ class ContactMailer < ApplicationMailer
     @name = name
     @email = email
     @message = message
-    mail(to: 'jasonmaglangit@gmail.com', subject: 'JasonMag - Contact Us Submission')
+    mail(to: 'jasonmaglangit+100@gmail.com', subject: 'JasonMag - Contact Us Submission')
   end
 end 
