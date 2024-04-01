@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :body, :tags, :image_source, :published, :author_id)
+      params.require(:project).permit(:title, :content, :tags, :image_source, :published, :author_id)
     end
 
     # Get list of authors
