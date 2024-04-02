@@ -2,5 +2,10 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
+import "@fortawesome/fontawesome-free"
+
+import "./packs/trix_customs"
+
 import "trix"
+
 import "@rails/actiontext"
