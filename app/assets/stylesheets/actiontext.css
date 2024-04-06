@@ -11,6 +11,7 @@
  * <action-text-attachment> element we wrap around attachments. Otherwise,
  * images in galleries will be squished by the max-width: 33%; rule.
 */
+
 .trix-content .attachment-gallery > action-text-attachment,
 .trix-content .attachment-gallery > .attachment {
   flex: 1 0 33%;
@@ -33,3 +34,36 @@
 .trix-button {
   background-color: blue;
 }
+
+@layer components {
+  .trix-button-row {
+    @apply flex mb-1
+  }
+  .trix-toolbar-1 {
+    @apply flex 
+  }
+  .trix-button-group--text-tools {
+    @apply flex px-4 pl-0
+  }
+  .trix-button-group--text-tools .trix-button {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+  }
+  .trix-button-group--block-tools {
+    @apply flex px-4
+  }
+  .trix-button-group--block-tools .trix-button {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+  }
+  .trix-button-group--file-tools {
+    @apply flex px-4
+  }
+  .trix-button-group--file-tools .trix-button {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+  }
+  .trix-button-group--history-tools {
+    @apply flex lg:flex-1 lg:justify-end
+  }
+  .trix-button-group--history-tools .trix-button {
+      @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+  }
+};
