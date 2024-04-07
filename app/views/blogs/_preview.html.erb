@@ -8,7 +8,7 @@
     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
       <%= link_to blog.title, blog, class: "absolute inset-0" %>
     </h3>
-    <p class="mt-14 line-clamp-3 text-sm leading-6 text-gray-600 trix-content"><%= blog.content %></p>
+    <p class="mt-14 line-clamp-4 text-sm leading-6 text-gray-600 trix-content"><%= truncate_body_for_preview(blog.content) %></p>
   </div>
   <!-- author -->
   <%= render partial:'home/shared/author', locals: { author: blog.author } %>
