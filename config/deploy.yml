@@ -4,6 +4,10 @@ service: jasonmag
 # Name of the container image.
 image: jasonmaglangit/nebula-forge
 
+builder:
+  remote:
+    arch: amd64
+    
 # Deploy to these servers.
 servers:
   web:
