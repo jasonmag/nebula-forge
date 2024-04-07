@@ -46,24 +46,24 @@
     @apply flex px-4 pl-0
   }
   .trix-button-group--text-tools .trix-button {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+    @apply bg-gray-100 hover:bg-gray-700 hover:text-gray-100 text-gray-600 font-bold py-2 px-4 border border-gray-500
   }
   .trix-button-group--block-tools {
     @apply flex px-4
   }
   .trix-button-group--block-tools .trix-button {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+    @apply bg-gray-100 hover:bg-gray-700 hover:text-gray-100 text-gray-600 font-bold py-2 px-4 border border-gray-500
   }
   .trix-button-group--file-tools {
     @apply flex px-4
   }
   .trix-button-group--file-tools .trix-button {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+    @apply bg-gray-100 hover:bg-gray-700 hover:text-gray-100 text-gray-600 font-bold py-2 px-4 border border-gray-500
   }
   .trix-button-group--history-tools {
     @apply flex lg:flex-1 lg:justify-end
   }
   .trix-button-group--history-tools .trix-button {
-      @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-gray-600
+      @apply bg-gray-100 hover:bg-gray-700 hover:text-gray-100 text-gray-600 font-bold py-2 px-4 border border-gray-500
   }
 };
