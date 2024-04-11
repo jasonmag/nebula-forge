@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: %i[ index show ]
   before_action :set_project, only: %i[ show edit update destroy preview]
   before_action :get_authors, only: [ :new,:create,:edit]
