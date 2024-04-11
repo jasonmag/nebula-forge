@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index,:about,:contact, :privacy_policy]
   before_action :get_blogs, only: [:index]
   before_action :get_projects, only: [:index]
