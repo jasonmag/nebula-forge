@@ -1,9 +1,15 @@
 class Admins::UsersController < ApplicationController
   before_action :authenticate_admin!
   before_action :get_users, only: [ :index ]
-  before_action :getuser, only: %i [ edit show ]
+  before_action :get_user, only: %i[ edit show ]
 
   def index
+  end
+
+  def new 
+  end
+
+  def create 
   end
 
   def show
@@ -11,11 +17,20 @@ class Admins::UsersController < ApplicationController
 
   def edit
   end
+  
+  def update
+  end
 
-  private
+  def destroy   
+  end
+
+  protected
 
   def get_users
     @users = User.all
   end
 
+  def get_user
+    @user = User.find(params[:id])
+  end
 end
