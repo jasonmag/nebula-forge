@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # App Managment
   namespace :admins do
     get 'dashboard', to: 'dashboard#index'
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users
   end
   
 
