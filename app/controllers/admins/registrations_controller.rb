@@ -2,33 +2,34 @@
 
 class Admins::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_admin!
+  before_action :authorize_admin, only: [:update, :destroy]
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -40,6 +41,22 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def authenticate_admin!
+    unless current_admin
+      flash[:message] = "You need to sign in to access this feature."
+      flash[:type] = "error"
+      redirect_to root_path
+    end
+  end
+
+  def authorize_admin
+    unless current_admin
+      flash[:message] = "Only admin users can perform this action."
+      flash[:type] = "error"
+      redirect_to root_path
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

@@ -1,6 +1,6 @@
 module FlashMessagesHelper
   def render_flash_message
-    return unless @flash[:message]
+    return unless @flash[:message] && @flash[:type].present?
 
     css_classes = {
       success: 'bg-green-100 border-green-400 text-green-700',

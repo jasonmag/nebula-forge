@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   # root "pages#home"
 
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations'
   }
   devise_for :users, controllers: {
     sessions: 'users/sessions',
