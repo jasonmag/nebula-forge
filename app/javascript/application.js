@@ -9,3 +9,5 @@ import "./packs/trix_customs"
 import "trix"
 
 import "@rails/actiontext"
+
+import "./services/flash_messages"

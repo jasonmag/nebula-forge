@@ -33,7 +33,7 @@ class Admins::UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      redirect_to admins_user_path(@user.id), notice: "User was successfully updated."
+      redirect_to admins_user_path, notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,0 +1,31 @@
+/* Custom styling for flash message */
+.flash-message {
+  position: fixed;
+  bottom: 1rem; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; /* Ensure it's on top */
+  opacity: 0; /* Initially hidden */
+  animation: fadeInOut 10s forwards; /* Animation */
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Maximum width */
+  padding: 1.5rem; /* Padding around content */
+  font-size: 1rem; /* Font size */
+  line-height: 1.5; /* Line height */
+}
+
+/* Animation keyframes */
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}

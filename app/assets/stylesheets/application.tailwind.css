@@ -1,5 +1,6 @@
 /* imports in order */
 @import "actiontext.css";
+@import "flash_messages.css";
 
 @tailwind base;
 @tailwind components;
