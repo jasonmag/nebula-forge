@@ -1,0 +1,5 @@
+<% if user.avatar.attached? %>
+  <%= image_tag user.avatar %> <%= user.name %>
+<% else %>
+  <%= render "shared/svg/default_profile_mini" %>
+<% end %>
