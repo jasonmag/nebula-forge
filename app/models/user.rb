@@ -12,6 +12,9 @@ class User < ApplicationRecord
   # belongs_to :role, class_name: 'UserRole'
   # belongs_to :author, class_name: 'User'
 
+  # render avatar attachment
+  has_one_attached :avatar
+
   # Get fullname
   def full_name
     "#{first_name} #{last_name}"
