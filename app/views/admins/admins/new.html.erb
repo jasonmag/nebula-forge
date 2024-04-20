@@ -1,0 +1,22 @@
+<div id="admin_admin_dashboard_new">
+  <div class="bg-white">
+    <div>
+      <%= render "admins/shared/navbar" %>
+      <div class="md:pl-72">
+        <%= render "admins/shared/header" %>
+        <main class="py-12">
+          <div class="lg:px-8 md:px-6 px-4 ">
+            <div class="opacity-75 border-gray-400 border-dashed border border-lg overflow-hidden relative h-screen">
+              <div class="flex max-w-xl flex-col lg:flex-row items-center justify-start mx-auto">
+                <div class="lg:w-1/2">
+                  <h2 class="mb-4 text-lg font-semibold">New Admin</h2>
+                  <%= render "form", admin: @admin %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>

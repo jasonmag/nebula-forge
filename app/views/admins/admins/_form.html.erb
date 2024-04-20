@@ -1,9 +1,9 @@
-<%= form_for(user, as: :user, url: user.persisted? ? admins_user_path(user.id) : admins_users_path, html: { method:
-  user.persisted? ? :put : :post }) do |f| %>
-  <%= render "devise/shared/error_messages" , resource: user %>
+<%= form_for(admin, as: :admin, url: admin.persisted? ? admins_admin_path(admin.id) : admins_admins_path, html: { method:
+  admin.persisted? ? :put : :post }) do |f| %>
+  <%= render "devise/shared/error_messages" , resource: admin %>
 
     <div class="mb-4">
-      <%= render "admins/shared/avatar", resource: user %>
+      <%= render "admins/shared/avatar", resource: admin %>
       <!-- Add option to update avatar -->
     </div>
 
@@ -39,16 +39,15 @@
     </div>
 
     <div class="flex items-center justify-between">
-      <%= link_to "Back" , admins_users_path, class: "text-sm text-gray-600 hover:text-gray-800" %>
+      <%= link_to "Back" , admins_admins_path, class: "text-sm text-gray-600 hover:text-gray-800" %>
         <div class="flex items-center">
-          <!-- TODO: User not deleting -->
-          <% if user.persisted? %>
-            <%= button_to "Cancel account" , admins_admin_path(user.id), data: {
+          <% if admin.persisted? %>
+            <%= button_to "Cancel account" , admins_admin_path(admin.id), data: {
               confirm: "Are you sure you want to cancel the account?" ,
               turbo_confirm: "Are you sure you want to cancel the account?" }, method: :delete,
               class: "ml-2 py-2 px-4 text-sm text-red-800 hover:text-white hover:bg-red-800" %>
           <% end %>
-          <%= f.submit user.persisted? ? "Update" : "Create" ,
+          <%= f.submit admin.persisted? ? "Update" : "Create" ,
             class: "ml-2 py-2 px-4 text-gray-600 hover:text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:bg-blue-600"
             %>
         </div>

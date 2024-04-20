@@ -1,0 +1,13 @@
+<main class="py-12">
+  <div class="lg:px-8 md:px-6 px-4 ">
+    <div class="opacity-75 border-gray-400 border-dashed border border-lg overflow-hidden relative h-screen">
+      <div class="flex max-w-xl flex-col lg:flex-row items-center justify-start mx-auto" id="<%= dom_id admin %>">
+        <div class="lg:w-1/2">
+          <h2 class="mb-4 text-lg font-semibold">Admin</h2>
+          <!-- Directed view to the form -->
+          <%= render "form", admin: @admin %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

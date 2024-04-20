@@ -33,9 +33,9 @@
         <button class="p-1 items-center flex m-1" id="user-menu-button" type="button"
                 aria-haspopup="true" aria-expanded="false" data-headlessui-state=""
                 onclick="toggleMenu()">  
-          <%= render "admins/shared/avatar", user: current_admin %>
+          <%= render "admins/shared/avatar", resource: current_admin %>
           <span class="lg:items-center lg:flex hidden">
-            <span class="color-gray-900 leading-6 font-semibold text-sm ml-4" aria-hidden="true">Tom Cook</span>
+            <span class="color-gray-900 leading-6 font-semibold text-sm ml-4" aria-hidden="true"><%= "#{current_admin.first_name} #{current_admin.last_name}".titleize %></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                   aria-hidden="true" class="text-gray-400 w-5 h-5 ml-2 ">
               <path fill-rule="evenodd"

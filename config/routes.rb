@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'dashboard', to: 'dashboard#index'
     resources :users
+    resources :admins
   end
-  
 
   # Landing Pages
   root "home#index"
