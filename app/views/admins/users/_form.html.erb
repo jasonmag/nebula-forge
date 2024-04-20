@@ -3,6 +3,11 @@
   <%= render "devise/shared/error_messages" , resource: user %>
 
     <div class="mb-4">
+      <%= render "admins/shared/avatar", user: user %>
+      <!-- Add option to update avatar -->
+    </div>
+
+    <div class="mb-4">
       <%= f.label :first_name, class: "block mb-1" %>
         <%= f.text_field :first_name, class: "form-input w-full" %>
     </div>

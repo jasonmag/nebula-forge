@@ -33,9 +33,7 @@
         <button class="p-1 items-center flex m-1" id="user-menu-button" type="button"
                 aria-haspopup="true" aria-expanded="false" data-headlessui-state=""
                 onclick="toggleMenu()">  
-          <img class="bg-gray-50 rounded-full w-8 h-8 max-w-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                alt="">
+          <%= render "admins/shared/avatar", user: current_admin %>
           <span class="lg:items-center lg:flex hidden">
             <span class="color-gray-900 leading-6 font-semibold text-sm ml-4" aria-hidden="true">Tom Cook</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
