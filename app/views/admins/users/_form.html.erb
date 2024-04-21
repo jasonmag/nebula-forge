@@ -3,8 +3,8 @@
   <%= render "devise/shared/error_messages" , resource: user %>
 
     <div class="mb-4">
-      <%= render "admins/shared/avatar", resource: user %>
-      <!-- Add option to update avatar -->
+      <%= render "admins/shared/avatar" , resource: user %>
+        <!-- Add option to update avatar -->
     </div>
 
     <div class="mb-4">
@@ -39,33 +39,33 @@
     </div>
 
     <div class="flex items-center justify-between">
-      <%= link_to "Back" , admins_users_path, class: "text-sm text-gray-600 hover:text-gray-800" %>
-        <div class="flex items-center">
-          <!-- TODO: User not deleting -->
-          <% if user.persisted? %>
-            <%= button_to "Cancel account" , admins_admin_path(user.id), data: {
-              confirm: "Are you sure you want to cancel the account?" ,
-              turbo_confirm: "Are you sure you want to cancel the account?" }, method: :delete,
-              class: "ml-2 py-2 px-4 text-sm text-red-800 hover:text-white hover:bg-red-800" %>
-          <% end %>
-          <%= f.submit user.persisted? ? "Update" : "Create" ,
-            class: "ml-2 py-2 px-4 text-gray-600 hover:text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:bg-blue-600"
-            %>
-        </div>
+      <%= link_to "Back", admins_users_path, class: "ml-2 py-2 px-4 text-gray-600 hover:text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-600" %>
+      <div class="flex items-center">
+        <%= f.submit user.persisted? ? "Update" : "Create" ,
+          class: "ml-2 py-2 px-4 text-gray-600 hover:text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-600"
+        %>
+<% end %>
+        <% if user.persisted? %>
+          <%= button_to "Delete" , admins_user_path(user.id), data: {
+            confirm: "Are you sure you want to cancel the account?" ,
+            turbo_confirm: "Are you sure you want to cancel the account?" }, method: :delete,
+            class: "ml-2 py-2 px-4 text-sm text-red-800 hover:text-white hover:bg-red-800" %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
 
-      <script>
-        function togglePasswordField() {
-          var passwordFields = document.getElementById("password_fields");
-          var confirmationFields = document.getElementById("confirmation_fields");
 
-          if (passwordFields.style.display === "none") {
-            passwordFields.style.display = "block";
-            confirmationFields.style.display = "block";
-          } else {
-            passwordFields.style.display = "none";
-            confirmationFields.style.display = "none";
-          }
-        }
-      </script>
+<script>
+  function togglePasswordField() {
+    var passwordFields = document.getElementById("password_fields");
+    var confirmationFields = document.getElementById("confirmation_fields");
+
+    if (passwordFields.style.display === "none") {
+      passwordFields.style.display = "block";
+      confirmationFields.style.display = "block";
+    } else {
+      passwordFields.style.display = "none";
+      confirmationFields.style.display = "none";
+    }
+  }
+</script>
