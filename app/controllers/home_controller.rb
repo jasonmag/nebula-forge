@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   before_action :get_projects, only: [:index]
 
   def index
+    set_meta
   end
 
   def about

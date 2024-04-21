@@ -37,12 +37,14 @@ Rails.application.routes.draw do
 
   # Access Pages
   resources :blogs do
+    # TODO convert blogs id into words/title
     member do
       get 'preview'
     end
   end
 
   resources :projects do
+    # TODO convert projects id into words/title
     member do
       get 'preview'
     end
