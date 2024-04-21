@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_meta
-    @meta_portfolio_description = "Experienced Full-Stack Software Engineer with a focus on agile development for the edtech and ecommerce industries. Proficient in Tailwind CSS and PostgreSQL, I specialize in crafting seamless web applications with clean, efficient code and innovative solutions. Currently engaged in generative AI studies. Let's bring your ideas to life with technology expertise."
-    @meta_portfolio_keywords = "Full-Stack developer, Software Engineer, Tailwind CSS, PostgreSQL, agile development, edtech, ecommerce, generative AI studies"
+    @meta_portfolio_description = "Experienced Full-Stack Software Engineer with a focus on agile development for the edtech and ecommerce industries. Proficient in Ruby on Rails, Kamal, Vuejs, Tailwind CSS and PostgreSQL, I specialize in crafting seamless web applications with clean, efficient code and innovative solutions. Currently engaged in generative AI studies. Let's bring your ideas to life with technology expertise."
+    @meta_portfolio_keywords = "Full-Stack developer, Software Engineer,Ruby on Rails, Kamal, Vuejs, Tailwind CSS, PostgreSQL, agile development, edtech, ecommerce, generative AI studies"
     @meta_description = @meta_portfolio_description
     @meta_keywords = @meta_portfolio_keywords
   end
