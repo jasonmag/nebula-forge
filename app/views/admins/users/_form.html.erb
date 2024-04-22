@@ -3,8 +3,8 @@
   <%= render "devise/shared/error_messages" , resource: user %>
 
     <div class="mb-4">
-      <%= render "admins/shared/avatar" , resource: user %>
-        <!-- Add option to update avatar -->
+      <%= render "shared/avatar" , resource: user %>
+      <%= f.file_field :avatar %>
     </div>
 
     <div class="mb-4">

@@ -1,5 +1,5 @@
 <% if resource.avatar.attached? %>
-  <%= image_tag resource.avatar %>
+  <%= image_tag resource.avatar, class: "h-12 w-12 text-slate-300 rounded-full bg-gray-50 m-2" %>
 <% else %>
   <%= render "shared/svg/default_profile_mini" %>
 <% end %>

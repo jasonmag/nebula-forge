@@ -56,9 +56,9 @@ class Admins::UsersController < ApplicationController
 
   def user_params
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:avatar, :first_name, :last_name, :email)
     else
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:avatar, :first_name, :last_name, :email, :password, :password_confirmation)
     end
   end  
 
