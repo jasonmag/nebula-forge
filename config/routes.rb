@@ -36,14 +36,14 @@ Rails.application.routes.draw do
   post "contacts/create", to: "contacts#create"
 
   # Access Pages
-  resources :blogs do
+  resources :blogs, param: :slug do
     # TODO convert blogs id into words/title
     member do
       get 'preview'
     end
   end
 
-  resources :projects do
+  resources :projects, param: :slug do
     # TODO convert projects id into words/title
     member do
       get 'preview'
