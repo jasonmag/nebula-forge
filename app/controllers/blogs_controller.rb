@@ -67,7 +67,7 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:slug])
       @meta_description = @blog.title
       @meta_keywords = @blog.tags
     end
