@@ -86,3 +86,5 @@ gem "importmap-rails", "~> 2.0"
 gem "faker", "~> 3.2"
 
 gem 'font-awesome-sass'
+
+gem 'friendly_id', '~> 5.5.0'
