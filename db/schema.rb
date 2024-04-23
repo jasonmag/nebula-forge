@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_07_151328) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_23_150218) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -80,7 +80,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_151328) do
     t.datetime "updated_at", null: false
     t.integer "author_id", null: false
     t.string "tags"
+    t.string "slug"
     t.index ["author_id"], name: "index_blogs_on_author_id"
+    t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
   create_table "companies", force: :cascade do |t|
@@ -98,7 +100,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_151328) do
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["author_id"], name: "index_projects_on_author_id"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
   create_table "user_companies", force: :cascade do |t|
