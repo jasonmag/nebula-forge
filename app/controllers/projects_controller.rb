@@ -67,9 +67,9 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
-      @meta_description = @blog.title
-      @meta_keywords = @blog.tags
+      @project = Project.friendly.find(params[:slug])
+      @meta_description = @project.title
+      @meta_keywords = @project.tags
     end
 
     # Only allow a list of trusted parameters through.

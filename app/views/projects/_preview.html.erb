@@ -2,11 +2,11 @@
   <div class="group relative">
     <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
       <% if project.image_source.present? && valid_link?(project.image_source) %>
-        <%= link_to project_path(project) do %>
+        <%= link_to project_path(project.slug) do %>
           <%= image_tag project.image_source, alt: project.title, class: "h-full w-full object-cover object-center object-top" %>
         <% end %>
       <% else %>
-        <%= link_to project_path(project) do %>
+        <%= link_to project_path(project.slug) do %>
           <%= image_tag "https://cdn.midjourney.com/f73616d3-3bf9-4415-9d26-de3159789074/0_2.png", alt: "Alternative Image", class: "h-full w-full object-cover object-center object-top" %>
         <% end %>
       <% end %>
