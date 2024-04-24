@@ -32,7 +32,9 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
+        flash[:type] = "success"
+        flash[:message] = "Blog was successfully created."
+        format.html { redirect_to blog_url(@blog) }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +47,9 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
+        flash[:type] = "success"
+        flash[:message] = "Blog was successfully updated."
+        format.html { redirect_to blog_url(@blog) }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,9 +61,10 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
     @blog.destroy!
-
+    flash[:type] = "success"
+    flash[:message] = "Blog was successfully destroyed."
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: "Blog was successfully destroyed." }
+      format.html { redirect_to blogs_url }
       format.json { head :no_content }
     end
   end
@@ -68,6 +73,11 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:slug])
+      if !user_signed_in? && !@blog.published
+        flash[:type] = "error"
+        flash[:message] = "This Blog is not published."
+        redirect_to blogs_url and return
+      end
       @meta_description = @blog.title
       @meta_keywords = @blog.tags
     end
