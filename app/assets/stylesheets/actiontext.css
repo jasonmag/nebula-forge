@@ -79,4 +79,9 @@
   .trix-content a:hover {
     @apply text-blue-700;
   }
+
+  /* Trix Editor */
+  trix-editor div a {
+    @apply text-blue-500 underline;
+  }
 };
