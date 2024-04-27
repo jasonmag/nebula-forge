@@ -13,7 +13,7 @@
     </div>
     <div class="absolute inset-x-0 bottom-0 bg-white p-4">
       <p class="mt-1 text-base font-semibold text-gray-900">
-        <%= link_to project.title, project %>
+        <%= link_to project.title.upcase, project %>
       </p>
       <%= render partial: 'home/shared/tags', locals: { tags: project.tags } %>
       
