@@ -24,6 +24,6 @@ class HomeController < ApplicationController
   end
 
   def get_projects
-    @projects = Project.order(created_at: :desc).first(3)
+    @projects = Project.published_for_user(current_user).order(created_at: :desc).first(3)
   end
 end
