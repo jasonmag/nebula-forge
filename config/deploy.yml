@@ -14,9 +14,9 @@ servers:
     hosts:
       - jasonmag.com
     labels:
-      traefik.http.routers.jasonmag.rule: Host(`jasonmag.com`,`www.jasonmag.com`,`nebulaforge.jasonmag.com`)
+      traefik.http.routers.jasonmag.rule: Host(`www.jasonmag.com`)
       traefik.http.routers.jasonmag_secure.entrypoints: websecure
-      traefik.http.routers.jasonmag_secure.rule: Host(`jasonmag.com`,`www.jasonmag.com`,`nebulaforge.jasonmag.com`)
+      traefik.http.routers.jasonmag_secure.rule: Host(`www.jasonmag.com`)
       traefik.http.routers.jasonmag_secure.tls: true
       traefik.http.routers.jasonmag_secure.tls.certresolver: letsencrypt
 
