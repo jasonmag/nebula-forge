@@ -90,12 +90,12 @@ default: &default
 
 development:
   <<: *default
-  database: storage/db/development.sqlite3
+  database: storage/db/sqlite/development.sqlite3
 
 test:
   <<: *default
-  database: storage/db/test.sqlite3
+  database: storage/db/sqlite/test.sqlite3
 
 production:
   <<: *default
-  database: storage/db/production.sqlite3
+  database: storage/db/sqlite/production.sqlite3
