@@ -13,10 +13,12 @@ servers:
   web:
     hosts:
       - jasonmag.com
+    options:
+      "add-host": host.docker.internal:host-gateway
     labels:
-      traefik.http.routers.jasonmag.rule: Host(`jasonmag.com`,`www.jasonmag.com`)
+      # traefik.http.routers.jasonmag.rule: Host(`jasonmag.com`,`www.jasonmag.com`)
       traefik.http.routers.jasonmag_secure.entrypoints: websecure
-      traefik.http.routers.jasonmag_secure.rule: Host(`jasonmag.com`,`www.jasonmag.com`)
+      traefik.http.routers.jasonmag_secure.rule: Host(`www.jasonmag.com`,`jasonmag.com`)
       traefik.http.routers.jasonmag_secure.tls: true
       traefik.http.routers.jasonmag_secure.tls.certresolver: letsencrypt
 
@@ -49,6 +51,9 @@ traefik:
   args:
     entryPoints.web.address: ":80"
     entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
     certificatesResolvers.letsencrypt.acme.email: "jasonmaglangit@gmail.com"
     certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
     certificatesResolvers.letsencrypt.acme.httpchallenge: true
