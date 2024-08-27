@@ -6,7 +6,7 @@ services:
     command: ./bin/rails server -b 0.0.0.0 -p 3000
     volumes:
       - .:/rails
-      - sqlite_data:/rails/db/sqlite
+      - sqlite_data:/rails/storage/db/sqlite
     ports:
       - "3000:3000"
     environment:
