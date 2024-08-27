@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   private
 
   def get_blogs
-    @blogs = Blog.published.order(created_at: :desc).first(3)
+    @blogs = Blog.published_for_user(current_user).order(created_at: :desc).first(3)
   end
 
   def get_projects
