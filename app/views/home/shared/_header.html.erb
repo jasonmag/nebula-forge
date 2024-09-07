@@ -25,8 +25,8 @@
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <% if current_user %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-sm font-semibold leading-6 text-gray-900" %>
-      <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+      <%# <% else %> %>
+        <%# <%= link_to "Log in", new_user_session_path, class: "text-sm font-semibold leading-6 text-gray-900" %> %>
       <% end %>
     </div>
   </nav>
