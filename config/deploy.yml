@@ -18,9 +18,9 @@ servers:
 # Set ssl: false if using something like Cloudflare to terminate SSL (but keep host!).
 proxy:
   ssl: true
-  host: jasonmag.com,www.jasonmag.com
+  host: jasonmag.com
   # kamal-proxy connects to your container over port 80, use `app_port` to specify a different port.
-  # app_port: 3000
+  app_port: 3000
 
 # Credentials for your image host.
 registry:
